@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plans</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body{
+    background:#0e0e0e;
+    color:#fff;
+    padding:20px 14px 80px;
+}
+
+h1{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:26px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.item{
+    background:#151515;
+    border:1px solid #ffffff18;
+    border-radius:14px;
+    padding:16px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:transform .1s ease, border-color .1s ease;
+}
+
+.item:active{
+    transform:scale(.97);
+    border-color:#ffd400;
+}
+
+.size{
+    font-size:20px;
+    font-weight:700;
+}
+
+.price{
+    font-size:14px;
+    color:#cfcfcf;
+}
+
+footer{
+    position:fixed;
+    bottom:14px;
+    left:0;
+    right:0;
+    text-align:center;
+    font-size:12px;
+    color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Available Plans</h1>
+
+<div class="list">
+    <div class="item" onclick="buy('40GB')"><div class="size">40GB</div><div class="price">110T V</div></div>
+    <div class="item" onclick="buy('60GB')"><div class="size">60GB</div><div class="price">150T V</div></div>
+    <div class="item" onclick="buy('70GB')"><div class="size">70GB</div><div class="price">170T V</div></div>
+    <div class="item" onclick="buy('80GB')"><div class="size">80GB</div><div class="price">200T V</div></div>
+    <div class="item" onclick="buy('100GB')"><div class="size">100GB</div><div class="price">230T V</div></div>
+
+    <div class="item" onclick="buy('220GB')"><div class="size">220GB</div><div class="price">400T</div></div>
+    <div class="item" onclick="buy('260GB')"><div class="size">260GB</div><div class="price">460T</div></div>
+    <div class="item" onclick="buy('320GB')"><div class="size">320GB</div><div class="price">620T</div></div>
+</div>
+
+<footer>
+    Designed by Sina Hesaraki
+</footer>
+
+<script>
+function buy(plan){
+    const text =
+`Hello 👋
+I want to buy a V2ray service with ${plan} data.
+Please guide me through the process.`;
+
+    location.href =
+    "https://t.me/hrdtek?text=" + encodeURIComponent(text);
+}
+</script>
+
+</body>
+</html>
