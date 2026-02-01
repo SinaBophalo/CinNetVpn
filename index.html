@@ -17,16 +17,62 @@ body{
     background:#0e0e0e;
     color:#fff;
     padding:20px 14px 80px;
+    overflow-x:hidden;
 }
+
+/* noise effect */
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:120px;
+    pointer-events:none;
+    background:radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+    opacity:.35;
+    filter:blur(18px);
+}
+body::before{ left:-40px; }
+body::after{ right:-40px; }
 
 h1{
     text-align:center;
     font-size:34px;
-    margin-bottom:26px;
+    margin-bottom:18px;
     font-weight:800;
     letter-spacing:1px;
 }
 
+/* Static IP section */
+.static-ip{
+    margin-bottom:26px;
+    text-align:center;
+}
+
+.static-ip h2{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:12px;
+    color:#ffd400;
+    letter-spacing:.5px;
+}
+
+.flags{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.flag{
+    background:#151515;
+    border:1px solid #ffffff18;
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:18px;
+}
+
+/* plans */
 .list{
     display:flex;
     flex-direction:column;
@@ -75,6 +121,20 @@ footer{
 
 <h1>Available Plans</h1>
 
+<!-- Static IP -->
+<div class="static-ip">
+    <h2>Static IP Available</h2>
+    <div class="flags">
+        <div class="flag">🇳🇱</div>
+        <div class="flag">🇬🇧</div>
+        <div class="flag">🇦🇪</div>
+        <div class="flag">🇹🇷</div>
+        <div class="flag">🇩🇪</div>
+        <div class="flag">🇫🇮</div>
+    </div>
+</div>
+
+<!-- Plans -->
 <div class="list">
     <div class="item" onclick="buy('40GB')"><div class="size">40GB</div><div class="price">110T V</div></div>
     <div class="item" onclick="buy('60GB')"><div class="size">60GB</div><div class="price">150T V</div></div>
@@ -95,8 +155,9 @@ footer{
 function buy(plan){
     const text =
 `Hello 👋
-I want to buy a V2ray service with ${plan} data.
-Please guide me through the process.`;
+I’d like to purchase a V2Ray service.
+Selected plan: ${plan}.
+Please let me know the next steps.`;
 
     location.href =
     "https://t.me/hrdtek?text=" + encodeURIComponent(text);
